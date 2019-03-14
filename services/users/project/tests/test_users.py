@@ -1,6 +1,7 @@
 import json
 import unittest
 
+from project.api.models import User
 from project.tests.base import BaseTestCase
 
 
