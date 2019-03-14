@@ -6,6 +6,13 @@ from project.api.models import User
 from project.tests.base import BaseTestCase
 
 
+def add_user(username, email):
+    user = User(username=username, email=email)
+    db.session.add(user)
+    db.session.commit()
+    return user
+
+
 class TestUserService(BaseTestCase):
     """Tests for the Users Services."""
 
@@ -94,9 +101,7 @@ class TestUserService(BaseTestCase):
 
     def test_single_user(self):
         """Ensure get single user behaves correctly"""
-        user = User(username='eder', email='eder@eder.org')
-        db.session.add(user)
-        db.session.commit()
+        user = add_user('eder', 'eder@eder.org')
         with self.client:
             response = self.client.get(f'/users/{user.id}')
             data = json.loads(response.data.decode())
@@ -128,6 +133,22 @@ class TestUserService(BaseTestCase):
             self.assertEqual(response.status_code, 404)
             self.assertIn('User does not exist', data['message'])
             self.assertIn('fail', data['status'])
+
+    def test_all_users(self):
+        """
+        Ensure get all users behaves correctly.
+        """
+        add_user('eder', 'eder@eder.org')
+        add_user('nicole', 'nicole@nicole.org')
+        with self.client:
+            response = self.client.get('/users')
+            data = json.loads(response.data.decode())
+            self.assertEqual(response.status_code, 200)
+            self.assertEqual(len(data['data']['users']), 2)
+            self.assertIn('eder', data['data']['users'][0]['username'])
+            self.assertIn('eder@eder.org', data['data']['users'][0]['email'])
+            self.assertIn('nicole', data['data']['users'][1]['username'])
+            self.assertIn('nicole@nicole.org', data['data']['users'][1]['email'])
 
 
 if __name__ == '__main__':
