@@ -3,39 +3,37 @@ version: '3.7'
 services:
 
   users:
-    container_name: users.pri
+    container_name: users.prod
     build:
       context: ./services/users
-      dockerfile: Dockerfile-dev
-    volumes:
-      - './services/users:/usr/src/app'
-    ports:
-      - 5001:5000
+      dockerfile: Dockerfile-prod
+    expose:
+      - 5000
     environment:
-      - FLASK_ENV=development
-      - FLASK_DEBUG=1
-      - APP_SETTINGS=project.config.DevelopmentConfig
-      - DATABASE_URL=postgres://postgres:postgres@users-db:5432/users_dev
+      - FLASK_ENV=production
+      - APP_SETTINGS=project.config.ProductionConfig
+      - DATABASE_URL=postgres://postgres:postgres@users-db:5432/users_prod
       - DATABASE_TEST_URL=postgres://postgres:postgres@users-db:5432/users_test
       - SECRET_KEY=my_precious
     depends_on:
       - users-db
 
   users-db:
-    container_name: users-db.pri
+    container_name: users-db.prod
     build:
       context: ./services/users/project/db
       dockerfile: Dockerfile
-    ports:
-      - 5436:5432
+    expose:
+      - 5432
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
 
   nginx:
+    container_name: nginx.prod
     build:
       context: ./services/nginx
-      dockerfile: Dockerfile-dev
+      dockerfile: Dockerfile-prod
     restart: always
     ports:
       - 80:80
