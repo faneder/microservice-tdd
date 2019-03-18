@@ -1,4 +1,4 @@
-from flask import Blueprint, jsonify, request, render_template
+from flask import Blueprint, jsonify, render_template, request
 
 from project import db
 from project.api.models import User
@@ -41,7 +41,7 @@ def add_user():
             response_object['message'] = 'Sorry. That email already exists.'
             return jsonify(response_object), 400
 
-    except exc.IntegrityError as e:
+    except exc.IntegrityError:
         db.session.rollback()
         return jsonify(response_object), 400
 
@@ -93,4 +93,5 @@ def index():
         db.session.add(User(username=username, email=email))
         db.session.commit()
     users = User.query.all()
+
     return render_template('index.html', users=users)

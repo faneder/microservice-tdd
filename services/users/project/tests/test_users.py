@@ -148,11 +148,15 @@ class TestUserService(BaseTestCase):
             self.assertIn('eder', data['data']['users'][0]['username'])
             self.assertIn('eder@eder.org', data['data']['users'][0]['email'])
             self.assertIn('nicole', data['data']['users'][1]['username'])
-            self.assertIn('nicole@nicole.org', data['data']['users'][1]['email'])
+            self.assertIn(
+                'nicole@nicole.org',
+                data['data']['users'][1]['email']
+            )
 
     def test_main_no_user(self):
         """
-        Ensure the main route behaves correctly when no users have been added to the databases.
+        Ensure the main route behaves correctly when
+        no users have been added to the databases.
         """
         response = self.client.get('/')
         self.assertEqual(response.status_code, 200)
@@ -161,7 +165,8 @@ class TestUserService(BaseTestCase):
 
     def test_main_with_users(self):
         """
-        Ensure the main route behaves correctly when users have been added to added to the database.
+        Ensure the main route behaves correctly when
+        users have been added to the database.
         """
         add_user('eder', 'eder@eder.org')
         add_user('ping', 'ping@ping.org')

@@ -1,5 +1,5 @@
 import os
-from flask import Flask, jsonify
+from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 
 
@@ -25,4 +25,5 @@ def create_app(script_info=None):
 
     # shell context for flask cli
     app.shell_context_processor({'app': app, 'db': db})
+
     return app
