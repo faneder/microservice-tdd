@@ -1,0 +1,88 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UsersList renders a snapshot properly 1`] = `
+<table
+  className="ui single line table"
+>
+  <thead
+    className=""
+  >
+    <tr
+      className=""
+    >
+      <th
+        className=""
+      >
+        Name
+      </th>
+      <th
+        className=""
+      >
+        email
+      </th>
+      <th
+        className=""
+      >
+        username
+      </th>
+      <th
+        className=""
+      >
+        active
+      </th>
+    </tr>
+  </thead>
+  <tbody
+    className=""
+  >
+    <tr
+      className=""
+    >
+      <td
+        className=""
+      >
+        1
+      </td>
+      <td
+        className=""
+      >
+        eder@gmail.com
+      </td>
+      <td
+        className=""
+      >
+        eder
+      </td>
+      <td
+        className=""
+      >
+        o
+      </td>
+    </tr>
+    <tr
+      className=""
+    >
+      <td
+        className=""
+      >
+        2
+      </td>
+      <td
+        className=""
+      >
+        ping@ping.org
+      </td>
+      <td
+        className=""
+      >
+        ping
+      </td>
+      <td
+        className=""
+      >
+        o
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
