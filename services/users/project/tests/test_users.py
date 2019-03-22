@@ -180,7 +180,11 @@ class TestUserService(BaseTestCase):
         with self.client:
             response = self.client.post(
                 '/',
-                data=dict(username='eder', email='eder@eder.org', password='pass'),
+                data=dict(
+                    username='eder',
+                    email='eder@eder.org',
+                    password='pass'
+                ),
                 follow_redirects=True
             )
             self.assertEqual(response.status_code, 200)
