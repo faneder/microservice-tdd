@@ -46,9 +46,15 @@ class TestUserModel(BaseTestCase):
         self.assertTrue(isinstance(user.to_json(), dict))
 
     def test_passwords_are_random(self):
-        user1= add_user('eder1', 'ede1r@eder.com', 'pass')
-        user2= add_user('eder2', 'eder2@eder.com', 'pass')
+        user1 = add_user('eder1', 'ede1r@eder.com', 'pass')
+        user2 = add_user('eder2', 'eder2@eder.com', 'pass')
         self.assertNotEqual(user1.password, user2.password)
+
+    def test_encode_auth_token(self):
+        user = add_user('eder', 'eder@eder.com', 'pass')
+        auth_token = user.encode_auth_token(user.id)
+        self.assertTrue(isinstance(auth_token, bytes))
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -58,5 +58,6 @@ class TestProductionConfig(TestCase):
         self.assertFalse(app.config['DEBUG_TB_ENABLED'])
         self.assertTrue(app.config['BCRYPT_LOG_ROUNDS'] == 13)
 
+
 if __name__ == '__main__':
     unittest.main()

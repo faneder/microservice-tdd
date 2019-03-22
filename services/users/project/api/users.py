@@ -33,7 +33,9 @@ def add_user():
     try:
         user = User.query.filter_by(email=email).first()
         if not user:
-            db.session.add(User(username=username, email=email, password=password))
+            db.session.add(
+                User(username=username, email=email, password=password)
+            )
             db.session.commit()
             response_object['status'] = 'success'
             response_object['message'] = f'{email} was added!'
@@ -42,7 +44,7 @@ def add_user():
             response_object['message'] = 'Sorry. That email already exists.'
             return jsonify(response_object), 400
 
-    except (exc.IntegrityError, ValueError) as e:
+    except (exc.IntegrityError, ValueError):
         db.session.rollback()
         return jsonify(response_object), 400
 
