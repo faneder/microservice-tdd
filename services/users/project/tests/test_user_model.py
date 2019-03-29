@@ -28,7 +28,6 @@ class TestUserModel(BaseTestCase):
         )
         db.session.add(duplicate_user)
         self.assertRaises(IntegrityError, db.session.commit)
-        db.session.add(duplicate_user)
 
     def test_add_user_duplicate_email(self):
         """Email must be unique"""

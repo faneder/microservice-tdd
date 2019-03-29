@@ -1,8 +1,10 @@
 import datetime
+import re
 import jwt
 
 from project import db, bcrypt
 from flask import current_app
+from sqlalchemy.orm import validates
 
 
 class User(db.Model):
@@ -57,6 +59,28 @@ class User(db.Model):
             return 'Signature expired. Please login again.'
         except jwt.InvalidTokenError:
             return 'Invalid token. please login again.'
+
+    @validates('username')
+    def validate_username(self, key, username):
+        if not username:
+            raise AssertionError('No username provided')
+
+        if len(username) < 4 or len(username) > 20:
+            raise AssertionError(
+              'Username must be between 5 and 20 characters'
+            )
+
+        return username
+
+    @validates('email')
+    def validate_email(self, key, email):
+        if not email:
+            raise AssertionError('No email provided')
+
+        if not re.match("[^@]+@[^@]+\\.[^@]+", email):
+            raise AssertionError('Provided email is not an email address')
+
+        return email
 
     def to_json(self):
         return {

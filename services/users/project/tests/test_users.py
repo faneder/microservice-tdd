@@ -62,7 +62,7 @@ class TestUserService(BaseTestCase):
             )
             data = json.loads(response.data.decode())
             self.assertEqual(response.status_code, 400)
-            self.assertIn('Invalid payload', data['message'])
+            self.assertIn('No username provided.', data['message'])
             self.assertIn('fail', data['status'])
 
     def test_add_user_duplicate_email(self):
@@ -83,7 +83,7 @@ class TestUserService(BaseTestCase):
             response = self.client.post(
                 '/users',
                 data=json.dumps({
-                    'username': 'eder',
+                    'username': 'eder1',
                     'email': 'eder@eder.org',
                     'password': 'pass'
                 }),
@@ -208,7 +208,7 @@ class TestUserService(BaseTestCase):
             )
             data = json.loads(response.data.decode())
             self.assertEqual(response.status_code, 400)
-            self.assertIn('Invalid payload', data['message'])
+            self.assertIn('Password must be non-empty', data['message'])
             self.assertIn('fail', data['status'])
 
 

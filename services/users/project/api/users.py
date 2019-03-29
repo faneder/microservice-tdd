@@ -44,8 +44,9 @@ def add_user():
             response_object['message'] = 'Sorry. That email already exists.'
             return jsonify(response_object), 400
 
-    except (exc.IntegrityError, ValueError):
+    except (exc.IntegrityError, AssertionError, ValueError) as e:
         db.session.rollback()
+        response_object['message'] = 'Error: {}. '.format(e)
         return jsonify(response_object), 400
 
 
