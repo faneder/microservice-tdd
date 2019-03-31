@@ -71,5 +71,6 @@ class TestProductionConfig(TestCase):
         self.assertTrue(app.config['TOKEN_EXPIRATION_SECONDS'] == 0)
 
 
+
 if __name__ == '__main__':
     unittest.main()
