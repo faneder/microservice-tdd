@@ -58,7 +58,7 @@ class User(db.Model):
         except jwt.ExpiredSignatureError:
             return 'Signature expired. Please login again.'
         except jwt.InvalidTokenError:
-            return 'Invalid token. please login again.'
+            return 'Invalid token. Please login again.'
 
     @validates('username')
     def validate_username(self, key, username):
