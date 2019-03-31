@@ -1,5 +1,10 @@
+import datetime
+import re
+import jwt
+
 from project import db, bcrypt
 from flask import current_app
+from sqlalchemy.orm import validates
 
 
 class User(db.Model):
@@ -17,6 +22,65 @@ class User(db.Model):
             password,
             current_app.config.get('BCRYPT_LOG_ROUNDS')
         ).decode()
+
+    def encode_auth_token(self, user_id):
+        """Generates the auth token"""
+        try:
+            payload = {
+                'exp': datetime.datetime.utcnow() + datetime.timedelta(
+                    days=current_app.config.get('TOKEN_EXPIRATION_DAYS'),
+                    seconds=current_app.config.get('TOKEN_EXPIRATION_SECONDS')
+                ),
+                'iat': datetime.datetime.utcnow(),
+                'sub': user_id
+            }
+
+            return jwt.encode(
+                payload,
+                current_app.config.get('SECRET_KEY'),
+                algorithm='HS256'
+            )
+        except Exception as e:
+            return e
+
+    @staticmethod
+    def decode_auth_token(auth_token):
+        """
+        Decodes the auth token
+        :param auth_token:
+        :return: integer|string
+        """
+        try:
+            payload = jwt.decode(
+                auth_token, current_app.config.get('SECRET_KEY')
+            )
+            return payload['sub']
+        except jwt.ExpiredSignatureError:
+            return 'Signature expired. Please login again.'
+        except jwt.InvalidTokenError:
+            return 'Invalid token. Please login again.'
+
+    @validates('username')
+    def validate_username(self, key, username):
+        if not username:
+            raise AssertionError('No username provided')
+
+        if len(username) < 4 or len(username) > 20:
+            raise AssertionError(
+              'Username must be between 5 and 20 characters'
+            )
+
+        return username
+
+    @validates('email')
+    def validate_email(self, key, email):
+        if not email:
+            raise AssertionError('No email provided')
+
+        if not re.match("[^@]+@[^@]+\\.[^@]+", email):
+            raise AssertionError('Provided email is not an email address')
+
+        return email
 
     def to_json(self):
         return {
