@@ -30,7 +30,7 @@ services:
       - POSTGRES_PASSWORD=postgres
 
   client:
-    container_name: client
+    container_name: client.prod
     build:
       context: ./services/client
       dockerfile: Dockerfile-prod
