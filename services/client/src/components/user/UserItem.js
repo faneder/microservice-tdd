@@ -1,15 +1,19 @@
 import React from "react";
-import { Table } from 'semantic-ui-react'
+
+import {
+  TableCell,
+  TableRow
+} from '@material-ui/core';
 
 const UserItem = (user) => {
   return (
-    <Table.Row>
-      <Table.Cell>{user.id}</Table.Cell>
-      <Table.Cell>{user.email}</Table.Cell>
-      <Table.Cell>{user.username}</Table.Cell>
-      <Table.Cell>{user.active ? 'o' : 'x'}</Table.Cell>
-    </Table.Row>
+    <TableRow key={user.id}>
+      <TableCell align="right">{user.id}</TableCell>
+      <TableCell align="right">{user.email}</TableCell>
+      <TableCell align="right">{user.username}</TableCell>
+      <TableCell align="right">{user.active ? 'o' : 'x'}</TableCell>
+    </TableRow>
   )
-}
+};
 
 export default UserItem;

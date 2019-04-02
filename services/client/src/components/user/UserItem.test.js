@@ -1,8 +1,12 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { Table } from 'semantic-ui-react'
 
 import UserItem from "./UserItem";
+
+import {
+  TableCell,
+  TableRow
+} from '@material-ui/core';
 
 const users = {
   'id': 1,
@@ -14,13 +18,13 @@ const users = {
 it('it renders one line per UserItem', () => {
   const wrapper = shallow(<UserItem {...users} />);
 
-  expect(wrapper.find(Table.Row).length).toEqual(1);
+  expect(wrapper.find(TableRow).length).toEqual(1);
 });
 
 it('it renders 4 columns per UserItem', () => {
   const wrapper = shallow(<UserItem {...users} />);
 
-  expect(wrapper.find(Table.Cell).length).toEqual(4);
+  expect(wrapper.find(TableCell).length).toEqual(4);
 });
 
 it('shows the text for each UserItem', () => {
