@@ -1,9 +1,15 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { shallow } from 'enzyme';
-import { Table } from 'semantic-ui-react'
+import { mount } from 'enzyme';
+
 import UserList from "./UserList";
 import UserItem from "./UserItem";
+
+import {
+  Table,
+  TableHead,
+  TableBody,
+} from '@material-ui/core';
 
 const users = [
   {
@@ -21,15 +27,15 @@ const users = [
 ];
 
 test('UserList renders properly', () => {
-  const wrapper = shallow(<UserList users={users} />);
+  const wrapper = mount(<UserList users={users} />);
 
   expect(wrapper.find(Table)).toHaveLength(1);
-  expect(wrapper.find(Table.Header)).toHaveLength(1);
-  expect(wrapper.find(Table.Body)).toHaveLength(1);
+  expect(wrapper.find(TableHead)).toHaveLength(1);
+  expect(wrapper.find(TableBody)).toHaveLength(1);
 });
 
 test('It renders 2 UserItems when 2 users ', () => {
-  const wrapper = shallow(<UserList users={users} />);
+  const wrapper = mount(<UserList users={users} />);
 
   expect(wrapper.find(UserItem)).toHaveLength(2);
 });

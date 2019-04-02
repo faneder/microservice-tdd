@@ -1,32 +1,79 @@
 import React from 'react';
-import { Button, Form } from 'semantic-ui-react'
+import PropTypes from 'prop-types';
+// @material-ui/core components
+import {
+  withStyles,
+  MenuItem,
+  TextField,
+  Button
+} from '@material-ui/core';
+
+const styles = theme => ({
+  container: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    margin: theme.spacing.unit,
+  },
+  textField: {
+    marginBottom: theme.spacing.unit * 2,
+  },
+  button: {
+    marginTop: theme.spacing.unit * 3,
+  }
+});
 
 const UserCreate = props => {
+  const { classes } = props;
   return (
-    <Form onSubmit={(event) => props.addUser(event)}>
-      <Form.Field>
-        <label>email</label>
-        <input
+     <form
+       onSubmit={(event) => props.addUser(event)}
+       className={classes.container}
+       noValidate
+       autoComplete="off"
+     >
+        <TextField
+          label="email"
+          className={classes.textField}
           name="email"
-          placeholder='email'
           value={props.email}
           onChange={props.handleChange}
+          fullWidth
           required
-        />
-      </Form.Field>
-      <Form.Field>
-        <label>Username</label>
-        <input
+       />
+       <TextField
+          label="username"
+          className={classes.textField}
           name="username"
-          placeholder='username'
           value={props.username}
           onChange={props.handleChange}
+          fullWidth
           required
-        />
-      </Form.Field>
-      <Button type='submit'>Submit</Button>
-    </Form>
+       />
+       <TextField
+          name="password"
+          label="Password"
+          className={classes.textField}
+          type="password"
+          autoComplete="current-password"
+          value={props.password}
+          onChange={props.handleChange}
+          fullWidth
+          required
+       />
+       <Button
+         type="submit"
+         variant="contained"
+         color="primary"
+         className={classes.button}
+       >
+          Submit
+       </Button>
+     </form>
   )
-}
+};
 
-export default UserCreate;
+UserCreate.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
+
+export default withStyles(styles)(UserCreate);

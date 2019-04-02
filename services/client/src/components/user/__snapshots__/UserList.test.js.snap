@@ -1,88 +1,108 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`UsersList renders a snapshot properly 1`] = `
-<table
-  className="ui single line table"
+<div
+  className="MuiPaper-root-3 MuiPaper-elevation2-7 MuiPaper-rounded-4 UserList-root-1"
 >
-  <thead
-    className=""
+  <table
+    className="MuiTable-root-30 UserList-table-2"
   >
-    <tr
-      className=""
+    <thead
+      className="MuiTableHead-root-31"
     >
-      <th
-        className=""
+      <tr
+        className="MuiTableRow-root-32 MuiTableRow-head-35"
       >
-        Name
-      </th>
-      <th
-        className=""
-      >
-        email
-      </th>
-      <th
-        className=""
-      >
-        username
-      </th>
-      <th
-        className=""
-      >
-        active
-      </th>
-    </tr>
-  </thead>
-  <tbody
-    className=""
-  >
-    <tr
-      className=""
+        <th
+          aria-sort={null}
+          className="MuiTableCell-root-37 MuiTableCell-head-38 MuiTableCell-alignRight-47"
+          scope="col"
+        >
+          Name
+        </th>
+        <th
+          aria-sort={null}
+          className="MuiTableCell-root-37 MuiTableCell-head-38 MuiTableCell-alignRight-47"
+          scope="col"
+        >
+          email
+        </th>
+        <th
+          aria-sort={null}
+          className="MuiTableCell-root-37 MuiTableCell-head-38 MuiTableCell-alignRight-47"
+          scope="col"
+        >
+          username
+        </th>
+        <th
+          aria-sort={null}
+          className="MuiTableCell-root-37 MuiTableCell-head-38 MuiTableCell-alignRight-47"
+          scope="col"
+        >
+          active
+        </th>
+      </tr>
+    </thead>
+    <tbody
+      className="MuiTableBody-root-49"
     >
-      <td
-        className=""
+      <tr
+        className="MuiTableRow-root-32"
       >
-        1
-      </td>
-      <td
-        className=""
+        <td
+          aria-sort={null}
+          className="MuiTableCell-root-37 MuiTableCell-body-39 MuiTableCell-alignRight-47"
+        >
+          1
+        </td>
+        <td
+          aria-sort={null}
+          className="MuiTableCell-root-37 MuiTableCell-body-39 MuiTableCell-alignRight-47"
+        >
+          eder@gmail.com
+        </td>
+        <td
+          aria-sort={null}
+          className="MuiTableCell-root-37 MuiTableCell-body-39 MuiTableCell-alignRight-47"
+        >
+          eder
+        </td>
+        <td
+          aria-sort={null}
+          className="MuiTableCell-root-37 MuiTableCell-body-39 MuiTableCell-alignRight-47"
+        >
+          o
+        </td>
+      </tr>
+      <tr
+        className="MuiTableRow-root-32"
       >
-        eder@gmail.com
-      </td>
-      <td
-        className=""
-      >
-        eder
-      </td>
-      <td
-        className=""
-      >
-        o
-      </td>
-    </tr>
-    <tr
-      className=""
-    >
-      <td
-        className=""
-      >
-        2
-      </td>
-      <td
-        className=""
-      >
-        ping@ping.org
-      </td>
-      <td
-        className=""
-      >
-        ping
-      </td>
-      <td
-        className=""
-      >
-        o
-      </td>
-    </tr>
-  </tbody>
-</table>
+        <td
+          aria-sort={null}
+          className="MuiTableCell-root-37 MuiTableCell-body-39 MuiTableCell-alignRight-47"
+        >
+          2
+        </td>
+        <td
+          aria-sort={null}
+          className="MuiTableCell-root-37 MuiTableCell-body-39 MuiTableCell-alignRight-47"
+        >
+          ping@ping.org
+        </td>
+        <td
+          aria-sort={null}
+          className="MuiTableCell-root-37 MuiTableCell-body-39 MuiTableCell-alignRight-47"
+        >
+          ping
+        </td>
+        <td
+          aria-sort={null}
+          className="MuiTableCell-root-37 MuiTableCell-body-39 MuiTableCell-alignRight-47"
+        >
+          o
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 `;
