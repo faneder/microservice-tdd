@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
+import { Route, Switch } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import usersApi from './apis/usersApi';
 import UserList from './components/user/UserList';
 import UserCreate from './components/user/UserCreate';
+import About from './components/about/About';
+import TopBar from './components/topBar/TopBar';
+import Login from './components/login/Login';
+import Signup from './components/signup/Signup';
 
 import withRootTheme from './withRootTheme';
 // @material-ui/core components
@@ -18,7 +23,6 @@ const styles = theme => ({
     display: 'flex',
     flexWrap: 'wrap',
     padding: theme.spacing.unit * 3
-
   },
   root: {
     flexGrow: 1,
@@ -38,7 +42,13 @@ class App extends Component {
     this.state = {
       users: [],
       username: '',
-      email: ''
+      email: '',
+      title: 'Title',
+      userForm: {
+        username: '',
+        email: '',
+        password: '',
+      }
     };
   }
 
@@ -85,29 +95,69 @@ class App extends Component {
     const { classes } = this.props;
 
     return (
-      <div className={classes.container}>
-         <Grid container spacing={24}>
-           <Grid item xs={12}>
-             <Typography variant="h5" component="h3">
-               Create User
-             </Typography>
-             <Paper className={classes.paper}>
-                <UserCreate
-                  username={this.state.username}
-                  email={this.state.email}
-                  addUser={this.addUser}
-                  handleChange={this.handleChange}
-                />
-             </Paper>
-           </Grid>
-           <Grid item xs={12}>
-             <Typography variant="h5" component="h3">
-               All Users
-             </Typography>
-             <UserList users={this.state.users} />
-           </Grid>
-        </Grid>
-      </div>
+      <React.Fragment>
+        <TopBar title="GoCode"/>
+        <div className={classes.container}>
+          <Switch>
+            <Route exact path='/login' render={() => (
+              <Grid container spacing={24}>
+                <Grid item xs={12}>
+                  <Typography variant="h5" component="h3">
+                    Login
+                  </Typography>
+                  <Paper className={classes.paper}>
+                      <Login
+                        userForm={this.state.userForm}
+                        addUser={this.addUser}
+                        handleChange={this.handleChange}
+                      />
+                  </Paper>
+                </Grid>
+              </Grid>
+            )} />
+            <Route exact path='/signup' render={() => (
+              <Grid container spacing={24}>
+                <Grid item xs={12}>
+                  <Typography variant="h5" component="h3">
+                    Signup
+                  </Typography>
+                  <Paper className={classes.paper}>
+                      <Signup
+                        userForm={this.state.userForm}
+                        addUser={this.addUser}
+                        handleChange={this.handleChange}
+                      />
+                  </Paper>
+                </Grid>
+              </Grid>
+            )} />
+            <Route exact path='/' render={() => (
+              <Grid container spacing={24}>
+                <Grid item xs={12}>
+                  <Typography variant="h5" component="h3">
+                    Create User
+                  </Typography>
+                  <Paper className={classes.paper}>
+                      <UserCreate
+                        username={this.state.username}
+                        email={this.state.email}
+                        addUser={this.addUser}
+                        handleChange={this.handleChange}
+                      />
+                  </Paper>
+                </Grid>
+                <Grid item xs={12}>
+                  <Typography variant="h5" component="h3">
+                    All Users
+                  </Typography>
+                  <UserList users={this.state.users} />
+                </Grid>
+              </Grid>
+            )} />
+            <Route exact path='/about' component={About} />
+          </Switch>
+        </div>
+      </React.Fragment>
     );
   }
 }

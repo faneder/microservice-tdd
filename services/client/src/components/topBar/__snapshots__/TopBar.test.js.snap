@@ -1,0 +1,227 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TopBar renders a snapshot properly 1`] = `
+<div
+  className="NavBar-root-1"
+>
+  <header
+    className="MuiPaper-root-13 MuiPaper-elevation4-19 MuiAppBar-root-4 MuiAppBar-positionStatic-8 MuiAppBar-colorPrimary-11"
+  >
+    <div
+      className="MuiToolbar-root-40 MuiToolbar-regular-42 MuiToolbar-gutters-41"
+    >
+      <button
+        aria-label="Menu"
+        className="MuiButtonBase-root-50 MuiIconButton-root-44 MuiIconButton-colorInherit-45 NavBar-menuButton-3"
+        disabled={false}
+        onBlur={[Function]}
+        onContextMenu={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex="0"
+        type="button"
+      >
+        <span
+          className="MuiIconButton-label-49"
+        >
+          <svg
+            aria-hidden="true"
+            className="MuiSvgIcon-root-53"
+            focusable="false"
+            role="presentation"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M0 0h24v24H0z"
+              fill="none"
+            />
+            <path
+              d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
+            />
+          </svg>
+        </span>
+        <span
+          className="MuiTouchRipple-root-124"
+        />
+      </button>
+      <h6
+        className="MuiTypography-root-62 MuiTypography-h6-79 MuiTypography-colorInherit-91 NavBar-grow-2"
+      >
+        Title
+        <a
+          className="MuiButtonBase-root-50 MuiButton-root-98 MuiButton-text-100 MuiButton-flat-103 MuiButton-colorInherit-119"
+          href="/"
+          name="Home"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onContextMenu={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          role="button"
+          tabIndex="0"
+        >
+          <span
+            className="MuiButton-label-99"
+          >
+            Home
+          </span>
+          <span
+            className="MuiTouchRipple-root-124"
+          />
+        </a>
+        <a
+          className="MuiButtonBase-root-50 MuiButton-root-98 MuiButton-text-100 MuiButton-flat-103 MuiButton-colorInherit-119"
+          href="/about"
+          name="About"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onContextMenu={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          role="button"
+          tabIndex="0"
+        >
+          <span
+            className="MuiButton-label-99"
+          >
+            About
+          </span>
+          <span
+            className="MuiTouchRipple-root-124"
+          />
+        </a>
+        <a
+          className="MuiButtonBase-root-50 MuiButton-root-98 MuiButton-text-100 MuiButton-flat-103 MuiButton-colorInherit-119"
+          href="/user/status"
+          name="User Status"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onContextMenu={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          role="button"
+          tabIndex="0"
+        >
+          <span
+            className="MuiButton-label-99"
+          >
+            User Status
+          </span>
+          <span
+            className="MuiTouchRipple-root-124"
+          />
+        </a>
+      </h6>
+      <a
+        className="MuiButtonBase-root-50 MuiButton-root-98 MuiButton-text-100 MuiButton-flat-103 MuiButton-colorInherit-119"
+        href="/login"
+        onBlur={[Function]}
+        onClick={[Function]}
+        onContextMenu={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        role="button"
+        tabIndex="0"
+      >
+        <span
+          className="MuiButton-label-99"
+        >
+          Login
+        </span>
+        <span
+          className="MuiTouchRipple-root-124"
+        />
+      </a>
+      <a
+        className="MuiButtonBase-root-50 MuiButton-root-98 MuiButton-text-100 MuiButton-flat-103 MuiButton-colorInherit-119"
+        href="/logout"
+        onBlur={[Function]}
+        onClick={[Function]}
+        onContextMenu={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        role="button"
+        tabIndex="0"
+      >
+        <span
+          className="MuiButton-label-99"
+        >
+          Log Out
+        </span>
+        <span
+          className="MuiTouchRipple-root-124"
+        />
+      </a>
+      <a
+        className="MuiButtonBase-root-50 MuiButton-root-98 MuiButton-text-100 MuiButton-flat-103 MuiButton-colorInherit-119"
+        href="/signup"
+        onBlur={[Function]}
+        onClick={[Function]}
+        onContextMenu={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        role="button"
+        tabIndex="0"
+      >
+        <span
+          className="MuiButton-label-99"
+        >
+          Sign Up
+        </span>
+        <span
+          className="MuiTouchRipple-root-124"
+        />
+      </a>
+    </div>
+  </header>
+</div>
+`;

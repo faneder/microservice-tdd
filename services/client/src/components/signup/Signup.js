@@ -4,7 +4,8 @@ import PropTypes from 'prop-types';
 import {
   withStyles,
   TextField,
-  Button
+  Button,
+  Typography
 } from '@material-ui/core';
 
 const styles = theme => ({
@@ -21,58 +22,63 @@ const styles = theme => ({
   }
 });
 
-const UserCreate = props => {
+const Signup = (props) => {
   const { classes } = props;
   return (
-     <form
-       onSubmit={(event) => props.addUser(event)}
-       className={classes.container}
-       noValidate
-       autoComplete="off"
-     >
+    <React.Fragment>
+      <Typography variant="h6" color="inherit">
+        Signup
+      </Typography>
+      <form
+        onSubmit={(event) => props.addUser(event)}
+        className={classes.container}
+        noValidate
+        autoComplete="off"
+      >
         <TextField
           label="email"
           className={classes.textField}
           name="email"
-          value={props.email}
+          value={props.userForm.email}
           onChange={props.handleChange}
           fullWidth
           required
-       />
-       <TextField
+        />
+        <TextField
           label="username"
           className={classes.textField}
           name="username"
-          value={props.username}
+          value={props.userForm.username}
           onChange={props.handleChange}
           fullWidth
           required
-       />
-       <TextField
+        />
+        <TextField
           name="password"
           label="Password"
           className={classes.textField}
           type="password"
           autoComplete="current-password"
-          value={props.password}
+          value={props.userForm.password}
           onChange={props.handleChange}
           fullWidth
           required
-       />
-       <Button
-         type="submit"
-         variant="contained"
-         color="primary"
-         className={classes.button}
-       >
+        />
+        <Button
+          type="submit"
+          variant="contained"
+          color="primary"
+          className={classes.button}
+        >
           Submit
-       </Button>
-     </form>
+        </Button>
+      </form>
+    </React.Fragment>
   )
 };
 
-UserCreate.propTypes = {
+Signup.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(UserCreate);
+export default withStyles(styles)(Signup);
